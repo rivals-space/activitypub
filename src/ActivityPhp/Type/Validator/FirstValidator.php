@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for first attribute.
  */
 class FirstValidator extends CurrentValidator
-{}
+{
+}

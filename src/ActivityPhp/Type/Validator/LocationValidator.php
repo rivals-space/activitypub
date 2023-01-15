@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for location attribute.
  */
 class LocationValidator extends InReplyToValidator
-{}
+{
+}

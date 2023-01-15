@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for instrument attribute.
  */
 class InstrumentValidator extends ActorValidator
-{}
+{
+}

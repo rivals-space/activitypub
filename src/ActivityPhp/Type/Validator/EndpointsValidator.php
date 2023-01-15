@@ -51,7 +51,6 @@ class EndpointsValidator implements ValidatorInterface
     protected function validateObject(array $item): bool
     {
         foreach ($item as $key => $value) {
-
             switch ($key) {
                 case 'proxyUrl':
                 case 'oauthAuthorizationEndpoint':
@@ -63,7 +62,7 @@ class EndpointsValidator implements ValidatorInterface
                         return false;
                     }
                     break;
-                // All other keys are not allowed
+                    // All other keys are not allowed
                 default:
                     return false;
             }

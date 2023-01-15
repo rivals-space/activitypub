@@ -34,9 +34,11 @@ class PartOfValidator implements ValidatorInterface
     {
         // Container is CollectionPage or OrderedCollectionPage type
         Util::subclassOf(
-            $container, [
+            $container,
+            [
                 CollectionPage::class, OrderedCollectionPage::class
-            ], true
+            ],
+            true
         );
 
         // URL

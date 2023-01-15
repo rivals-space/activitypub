@@ -36,7 +36,6 @@ class UrlValidator implements ValidatorInterface
 
         // Must be a valid URL
         if (is_array($value) && is_int(key($value))) {
-
             foreach ($value as $key => $item) {
                 if (! $this->validateUrlOrLink($item)) {
                     return false;

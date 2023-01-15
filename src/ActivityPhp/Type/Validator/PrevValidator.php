@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for prev attribute.
  */
 class PrevValidator extends NextValidator
-{}
+{
+}

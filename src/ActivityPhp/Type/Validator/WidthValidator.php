@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for width attribute.
  */
 class WidthValidator extends HeightValidator
-{}
+{
+}

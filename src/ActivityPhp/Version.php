@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace ActivityPhp;
 
+use Exception;
+
 /**
  * \ActivityPhp\Version handles current version of this package
  */
@@ -20,6 +22,7 @@ abstract class Version
 {
     /**
      * Get ActivityPhp version
+     * @throws Exception
      */
     public static function getVersion(): string
     {
@@ -27,14 +30,10 @@ abstract class Version
 
         self::checkFile($filename);
 
-        $composer = json_decode(
-            file_get_contents($filename)
-        );
+        $composer = json_decode(file_get_contents($filename), false);
 
-        if (json_last_error() === JSON_ERROR_NONE) {
-            if (isset($composer->version) && is_string($composer->version)) {
-                return $composer->version;
-            }
+        if ((json_last_error() === JSON_ERROR_NONE) && isset($composer->version) && is_string($composer->version)) {
+            return $composer->version;
         }
 
         return 'Undefined';
@@ -51,7 +50,7 @@ abstract class Version
     /**
      * Check that given filename is a string and is readable
      *
-     * @throws \Exception if filename is not a string
+     * @throws Exception if filename is not a string
      *                 or if filename is not a file
      *                 or if file is not readable
      */

@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for startTime attribute.
  */
 class StartTimeValidator extends EndTimeValidator
-{}
+{
+}

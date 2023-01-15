@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for image attribute.
  */
 class ImageValidator extends IconValidator
-{}
+{
+}

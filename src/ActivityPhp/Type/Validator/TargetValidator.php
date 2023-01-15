@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for target attribute.
  */
 class TargetValidator extends ActorValidator
-{}
+{
+}

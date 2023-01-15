@@ -68,7 +68,8 @@ class ActorValidator implements ValidatorInterface
         }
 
         Util::subclassOf(
-            $item, [
+            $item,
+            [
                 AbstractActor::class,
                 Link::class,
                 Collection::class

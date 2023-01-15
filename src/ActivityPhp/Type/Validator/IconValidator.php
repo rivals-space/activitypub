@@ -16,6 +16,7 @@ namespace ActivityPhp\Type\Validator;
 use ActivityPhp\Type\Core\ObjectType;
 use ActivityPhp\Type\Util;
 use ActivityPhp\Type\ValidatorInterface;
+use Exception;
 
 /**
  * \ActivityPhp\Type\Validator\IconValidator is a dedicated
@@ -26,36 +27,36 @@ class IconValidator implements ValidatorInterface
     /**
      * Validate icon item
      *
-     * @param string $item
-     * @param mixed  $container An object
-     * @todo Support Image objects and Link objects
+     * @param string $value
+     * @param mixed $container An object
+     * @throws Exception
      * @todo Implement size checks
+     * @todo Support Image objects and Link objects
      */
-    public function validate($item, $container): bool
+    public function validate($value, $container): bool
     {
         // Validate that container is a ObjectType
         Util::subclassOf($container, ObjectType::class, true);
 
-        if (is_string($item)) {
-            return Util::validateUrl($item);
+        if (is_string($value)) {
+            return Util::validateUrl($value);
         }
 
-        if (is_array($item)) {
-            $item = Util::arrayToType($item);
+        if (is_array($value)) {
+            $value = Util::arrayToType($value);
         }
 
-        if (is_array($item)) {
-            foreach ($item as $value) {
-
-                if (is_array($value)) {
-                    $value = Util::arrayToType($value);
+        if (is_array($value)) {
+            foreach ($value as $element) {
+                if (is_array($element)) {
+                    $element = Util::arrayToType($element);
                 }
 
-                if (is_string($value) && Util::validateUrl($value)) {
+                if (is_string($element) && Util::validateUrl($element)) {
                     continue;
                 }
 
-                if (! $this->validateObject($value)) {
+                if (! $this->validateObject($element)) {
                     return false;
                 }
             }
@@ -64,7 +65,7 @@ class IconValidator implements ValidatorInterface
         }
 
         // Must be an Image or a Link
-        return $this->validateObject($item);
+        return $this->validateObject($value);
     }
 
     /**

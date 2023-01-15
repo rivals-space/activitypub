@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['7.3', '7.4', '8.0', '8.1']
+        php-versions: ['8.0', '8.1']
 
     steps:
     - name: Checkout
@@ -38,7 +38,13 @@ jobs:
     - name: Install dependencies
       run: composer update --no-progress --no-suggest --ansi
 
+    - name: PHP-CS-Fixer
+      run: |
+        php -v
+        vendor/bin/php-cs-fixer fix --diff --dry-run
+
     - name: Run test suite
       run: |
         php -v
         vendor/bin/phpunit -c phpunit.xml.dist
+

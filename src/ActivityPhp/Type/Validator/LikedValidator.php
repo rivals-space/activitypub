@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for liked attribute.
  */
 class LikedValidator extends FollowersValidator
-{}
+{
+}

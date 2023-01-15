@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for relationship attribute.
  */
 class RelationshipValidator extends SubjectValidator
-{}
+{
+}

@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for updated attribute.
  */
 class UpdatedValidator extends EndTimeValidator
-{}
+{
+}

@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for orderedItems attribute.
  */
 class OrderedItemsValidator extends ItemsValidator
-{}
+{
+}

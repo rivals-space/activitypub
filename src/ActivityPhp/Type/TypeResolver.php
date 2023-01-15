@@ -104,41 +104,42 @@ abstract class TypeResolver
     /**
      * Get namespaced class for a given short type
      *
-     * @param  string $type
-     * @return string Related namespace
+     * @param string $type
+     * @return string|ObjectType Related namespace
      * @throw  \Exception if a namespace was not found.
+     * @throws Exception
      */
     public static function getClass($type)
     {
         $ns = __NAMESPACE__;
 
-        if ($type == 'Object') {
+        if ($type === 'Object') {
             $type .= 'Type';
         }
 
         switch ($type) {
             // Custom dialect types
-            case in_array($type, self::$dialectTypes):
+            case in_array($type, self::$dialectTypes, true):
                 $class = new ObjectType();
                 $class->type = $type;
                 return $class;
-            // Custom classes by facades
+                // Custom classes by facades
             case isset(self::$customTypes[$type]):
                 return self::$customTypes[$type];
-            case in_array($type, self::$coreTypes):
+            case in_array($type, self::$coreTypes, true):
                 $ns .= '\Core';
                 break;
-            case in_array($type, self::$activityTypes):
+            case in_array($type, self::$activityTypes, true):
                 $ns .= '\Extended\Activity';
                 break;
-            case in_array($type, self::$actorTypes):
+            case in_array($type, self::$actorTypes, true):
                 $ns .= '\Extended\Actor';
                 break;
-            case in_array($type, self::$objectTypes):
+            case in_array($type, self::$objectTypes, true):
                 $ns .= '\Extended\Object';
                 break;
             default:
-                if (TypeConfiguration::get('undefined_properties') == 'strict') {
+                if (TypeConfiguration::get('undefined_properties') === 'strict') {
                     throw new Exception(
                         "Undefined scope for type '$type'"
                     );
@@ -207,7 +208,7 @@ abstract class TypeResolver
     public static function addDialectType(string $name)
     {
         if (!self::exists($name)) {
-            array_push(self::$dialectTypes, $name);
+            self::$dialectTypes[] = $name;
         }
     }
 

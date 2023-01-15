@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for oneOf attribute.
  */
 class OneOfValidator extends AnyOfValidator
-{}
+{
+}

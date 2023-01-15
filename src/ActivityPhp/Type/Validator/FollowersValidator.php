@@ -56,11 +56,11 @@ class FollowersValidator implements ValidatorInterface
     protected function validateObject($collection)
     {
         return Util::subclassOf(
-                $collection,
-                OrderedCollection::class
+            $collection,
+            OrderedCollection::class
         ) || Util::subclassOf(
-                $collection,
-                Collection::class
+            $collection,
+            Collection::class
         );
     }
 }

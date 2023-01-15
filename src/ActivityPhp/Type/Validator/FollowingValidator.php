@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for followers attribute.
  */
 class FollowingValidator extends FollowersValidator
-{}
+{
+}

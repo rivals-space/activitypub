@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for outbox attribute.
  */
 class OutboxValidator extends InboxValidator
-{}
+{
+}

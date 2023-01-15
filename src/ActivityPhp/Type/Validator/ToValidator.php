@@ -18,4 +18,5 @@ namespace ActivityPhp\Type\Validator;
  * validator for to attribute.
  */
 class ToValidator extends BtoValidator
-{}
+{
+}
